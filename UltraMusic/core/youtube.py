@@ -83,7 +83,9 @@ class YouTube:
 
     def get_cookies(self):
         if not self.checked:
-            for file in os.listdir("UltraMusic/cookies"):
+            cookie_dir = "UltraMusic/cookies"
+            os.makedirs(cookie_dir, exist_ok=True)
+            for file in os.listdir(cookie_dir):
                 if file.endswith(".txt"):
                     self.cookies.append(file)
             self.checked = True
